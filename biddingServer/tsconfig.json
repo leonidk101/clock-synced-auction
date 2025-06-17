@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "target": "esnext",
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "module": "nodenext",
+        "outDir": "dist",
+        "lib": ["ES2023", "DOM"],
+        "strict": true,
+        "allowImportingTsExtensions": true,
+        "noEmit": true,
+        "verbatimModuleSyntax": true,
+        "erasableSyntaxOnly": true
+    },
+    "include": ["src"],
+    "exclude": ["node_modules"]
+}
