@@ -1,5 +1,7 @@
 import express from 'express'
 
+import { env } from '#src/env.ts'
+
 const app = express()
 
 app.use(express.json())
@@ -10,9 +12,9 @@ app.get('/', (req, res) => {
 
 console.group()
 
-console.log(`Application version ${process.env.VERSION}`)
-console.log(`Running on port ${process.env.PORT}...`)
+console.log(`Application version ${env.VERSION}`)
+console.log(`Running on port ${env.PORT}...`)
 
 console.groupEnd()
 
-app.listen(process.env.PORT)
+app.listen(env.PORT)

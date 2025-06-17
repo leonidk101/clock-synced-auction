@@ -10,7 +10,10 @@
         "allowImportingTsExtensions": true,
         "noEmit": true,
         "verbatimModuleSyntax": true,
-        "erasableSyntaxOnly": true
+        "erasableSyntaxOnly": true,
+        "paths": {
+            "#src/*": ["./src/*"]
+        }
     },
     "include": ["src"],
     "exclude": ["node_modules"]

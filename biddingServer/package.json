@@ -1,14 +1,16 @@
 {
   "name": "biddingserver",
   "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {
-    "dev": "node --env-file .env ./src/server.ts"
-  },
   "author": "Leo Kim",
   "license": "MIT",
   "description": "Backend integration for bidding server",
+  "scripts": {
+    "dev": "node --env-file .env ./src/server.ts"
+  },
   "type": "module",
+  "imports": {
+    "#src/*": "./src/*"
+  },
   "devDependencies": {
     "@types/express": "^5.0.3",
     "typescript": "^5.8.3"
