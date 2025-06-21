@@ -10,7 +10,6 @@ async function runMigrations() {
 	})
 	await client.connect()
 
-	// Ensure migrations table exists
 	await client.query(`
     CREATE TABLE IF NOT EXISTS migrations (
       id SERIAL PRIMARY KEY,

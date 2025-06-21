@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:16
+    restart: always
+    environment:
+      POSTGRES_USER: auction
+      POSTGRES_PASSWORD: auctionpass
+      POSTGRES_DB: auctiondb
+    ports:
+      - '5432:5432'
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+  bidding-server:
+    build:
+      context: .
+      dockerfile: packages/biddingServer/Dockerfile
+    env_file:
+      - packages/biddingServer/.env
+    environment:
+      DATABASE_URL: postgres://auction:auctionpass@db:5432/auctiondb
+    depends_on:
+      - db
+    ports:
+      - '3000:3000'
+    command: ['npm', 'run', 'dev']
+
+volumes:
+  db_data:

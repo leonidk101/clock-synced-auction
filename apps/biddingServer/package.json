@@ -7,7 +7,7 @@
 	"scripts": {
 		"dev": "node --env-file .env ./src/server.ts",
 		"format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
-		"migrate": "ts-node ./src/migrate.ts"
+		"migrate": "node --env-file .env ./src/migrate.ts"
 	},
 	"type": "module",
 	"imports": {
