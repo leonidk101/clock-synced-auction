@@ -16,16 +16,19 @@ services:
   bidding-server:
     build:
       context: .
-      dockerfile: packages/biddingServer/Dockerfile
+      dockerfile: dockerfile
     env_file:
-      - packages/biddingServer/.env
+      - apps/server/.env
     environment:
       DATABASE_URL: postgres://auction:auctionpass@db:5432/auctiondb
     depends_on:
       - db
     ports:
-      - '3000:3000'
-    command: ['npm', 'run', 'dev']
+      - '${PORT:-3000}:${PORT:-3000}'
+    command: ['pnpm', '--filter', 'server', 'dev']
+    volumes:
+      - .:/app
+      - /app/node_modules
 
 volumes:
   db_data:

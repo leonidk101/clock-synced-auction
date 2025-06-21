@@ -1,0 +1,29 @@
+{
+	"name": "server",
+	"version": "1.0.0",
+	"author": "Leo Kim",
+	"license": "MIT",
+	"description": "Backend integration for bidding server",
+	"scripts": {
+		"type-check": "tsc --noEmit",
+		"type-check:watch": "tsc --noEmit --watch",
+		"dev": "concurrently -k -p \"[{name}]\" -n \"TS,NODE\" -c \"red,green\" \"npm run type-check:watch\" \"node --watch --env-file .env ./src/server.ts\"",
+		"start": "node --env-file .env ./src/server.ts",
+		"clean": "rm -rf dist",
+		"format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
+		"migrate": "node --env-file .env ./src/migrate.ts"
+	},
+	"type": "module",
+	"imports": {
+		"#src/*": "./src/*"
+	},
+	"devDependencies": {
+		"@types/express": "^5.0.3",
+		"@types/node": "^24.0.3",
+		"concurrently": "^9.1.2"
+	},
+	"dependencies": {
+		"express": "^5.1.0",
+		"pg": "^8.16.0"
+	}
+}

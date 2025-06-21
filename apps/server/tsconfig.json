@@ -1,16 +1,16 @@
 {
 	"compilerOptions": {
+		"noEmit": true,
 		"target": "esnext",
+		"module": "nodenext",
+		"allowImportingTsExtensions": true,
+		"erasableSyntaxOnly": true,
+		"verbatimModuleSyntax": true,
 		"esModuleInterop": true,
 		"skipLibCheck": true,
-		"module": "nodenext",
 		"outDir": "dist",
 		"lib": ["ES2023", "DOM"],
 		"strict": true,
-		"allowImportingTsExtensions": true,
-		"noEmit": true,
-		"verbatimModuleSyntax": true,
-		"erasableSyntaxOnly": true,
 		"paths": {
 			"#src/*": ["./src/*"]
 		}
