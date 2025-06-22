@@ -2,6 +2,8 @@
 
 ## Architecture Overview
 
+The repository demonstrates how to maintain global consistency and real-time updates across multiple backend nodes using advanced synchronization algorithms.
+
 - **Frontend:** Vue.js app displays auction items, current highest bids, and bid history in a globally consistent order.
 - **Backend:** Multiple Node.js/TypeScript instances simulate separate bidding servers.
 - **Database:** PostgreSQL is used by each backend node to persist bids.
