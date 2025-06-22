@@ -1,20 +1,20 @@
 {
-	"compilerOptions": {
-		"noEmit": true,
-		"target": "esnext",
-		"module": "nodenext",
-		"allowImportingTsExtensions": true,
-		"erasableSyntaxOnly": true,
-		"verbatimModuleSyntax": true,
-		"esModuleInterop": true,
-		"skipLibCheck": true,
-		"outDir": "dist",
-		"lib": ["ES2023", "DOM"],
-		"strict": true,
-		"paths": {
-			"#src/*": ["./src/*"]
-		}
-	},
-	"include": ["src"],
-	"exclude": ["node_modules"]
+  "compilerOptions": {
+    "noEmit": true,
+    "target": "esnext",
+    "module": "nodenext",
+    "allowImportingTsExtensions": true,
+    "erasableSyntaxOnly": true,
+    "verbatimModuleSyntax": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "outDir": "dist",
+    "lib": ["ES2023", "DOM"],
+    "strict": true,
+    "paths": {
+      "#src/*": ["./src/*"]
+    }
+  },
+  "include": ["src"],
+  "exclude": ["node_modules"]
 }

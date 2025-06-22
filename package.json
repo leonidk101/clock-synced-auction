@@ -1,21 +1,21 @@
 {
-	"type": "module",
-	"private": true,
-	"engines": {
-		"node": ">=24.0.0"
-	},
-	"scripts": {
-		"start:server": "pnpm run -F server start",
-		"format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
-		"format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,json,md}\""
-	},
-	"dependencies": {
-		"zod": "^3.25.67"
-	},
-	"devDependencies": {
-		"@types/pg": "^8.15.4",
-		"prettier": "^3.5.3",
-		"rimraf": "^6.0.1",
-		"typescript": "^5.8.3"
-	}
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "scripts": {
+    "start:server": "pnpm run -F server start",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
+    "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,json,md}\""
+  },
+  "dependencies": {
+    "zod": "^3.25.67"
+  },
+  "devDependencies": {
+    "@types/pg": "^8.15.4",
+    "prettier": "^3.5.3",
+    "rimraf": "^6.0.1",
+    "typescript": "^5.8.3"
+  }
 }
