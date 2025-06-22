@@ -8,6 +8,23 @@ services:
       - '5432:5432'
     volumes:
       - db_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  dbmate:
+    image: amacneil/dbmate
+    profiles: ['migrations']
+    depends_on:
+      db:
+        condition: service_healthy
+    env_file:
+      - apps/server/.env
+    volumes:
+      - ./apps/server/migrations:/db/migrations
+    entrypoint: ['dbmate', 'up']
 
   bidding-server:
     build:
@@ -18,7 +35,8 @@ services:
     environment:
       DATABASE_URL: postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     ports:
       - '${PORT:-3000}:${PORT:-3000}'
     command: ['pnpm', '--filter', 'server', 'dev']
