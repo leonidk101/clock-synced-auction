@@ -28,4 +28,31 @@ The repository demonstrates how to maintain global consistency and real-time upd
 
 ---
 
+## Database Migrations
+
+This project uses [dbMate](https://github.com/amacneil/dbmate) for database schema migrations.
+
+- Migration files are located in `apps/server/migrations/`.
+- Migrations are written in SQL and follow the dbMate format.
+
+### Running Migrations
+
+**With Docker Compose:**
+
+- To run migrations as a one-off job:
+  ```sh
+  docker compose --profile migrations up dbmate
+  ```
+- By default, migrations are not run automatically on startup for faster development cycles.
+
+### Configuration
+
+- The database connection is configured via environment variables in `apps/server/.env`.
+- Example connection string:
+  ```
+  DATABASE_URL=postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}?sslmode=disable
+  ```
+
+---
+
 This project demonstrates distributed systems concepts (logical/physical clocks, distributed queues, and real-time updates) in a modern web application context.
