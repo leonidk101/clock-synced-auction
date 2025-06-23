@@ -26,23 +26,30 @@ services:
       - ./apps/server/migrations:/db/migrations
     entrypoint: ['dbmate', 'up']
 
-  bidding-server:
+  web-app:
     build:
       context: .
       dockerfile: dockerfile
     env_file:
-      - apps/server/.env
-    environment:
-      DATABASE_URL: postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}
+      - path: apps/server/.env
+        required: true
+        format: raw
+      - path: apps/web/.env
+        required: true
+        format: raw
+    image: auction-web-app:latest
     depends_on:
       db:
         condition: service_healthy
     ports:
-      - '${PORT:-3000}:${PORT:-3000}'
-    command: ['pnpm', '--filter', 'server', 'dev']
+      - '3000:3000'
+      - '5173:5173'
+    command: ['pnpm', 'run', '-r', 'dev']
     volumes:
       - .:/app
       - /app/node_modules
+      - /app/apps/server/node_modules
+      - /app/apps/web/node_modules
 
 volumes:
   db_data:
